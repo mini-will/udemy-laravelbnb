@@ -1952,6 +1952,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -1978,7 +1980,7 @@ __webpack_require__.r(__webpack_exports__);
         title: "Cheap Villa2",
         content: "A very cheap villa2"
       };
-    }, 3000);
+    }, 2000);
     setTimeout(function () {
       _this.bookable1.title = "You want see this!";
     }, 5000);
@@ -37662,21 +37664,25 @@ var render = function() {
   return _c(
     "div",
     [
-      _c("bookable-list-item", {
-        attrs: {
-          "item-title": _vm.bookable1.title,
-          "item-content": _vm.bookable1.content,
-          price: 1000
-        }
-      }),
+      _vm.bookable1
+        ? _c("bookable-list-item", {
+            attrs: {
+              "item-title": _vm.bookable1.title,
+              "item-content": _vm.bookable1.content,
+              price: 1000
+            }
+          })
+        : _vm._e(),
       _vm._v(" "),
-      _c("bookable-list-item", {
-        attrs: {
-          "item-title": _vm.bookable2.title,
-          "item-content": _vm.bookable2.content,
-          price: 2000
-        }
-      })
+      _vm.bookable2
+        ? _c("bookable-list-item", {
+            attrs: {
+              "item-title": _vm.bookable2.title,
+              "item-content": _vm.bookable2.content,
+              price: 2000
+            }
+          })
+        : _vm._e()
     ],
     1
   )

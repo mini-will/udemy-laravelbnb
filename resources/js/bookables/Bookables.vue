@@ -1,11 +1,13 @@
 <template>
   <div>
     <bookable-list-item
+      v-if="bookable1"
       :item-title="bookable1.title"
       :item-content="bookable1.content"
       :price="1000"
     ></bookable-list-item>
     <bookable-list-item
+      v-if="bookable2"
       :item-title="bookable2.title"
       :item-content="bookable2.content"
       :price="2000"
@@ -40,7 +42,7 @@ export default {
         title: "Cheap Villa2",
         content: "A very cheap villa2"
       };
-    }, 3000);
+    }, 2000);
 
     setTimeout(() => {
       this.bookable1.title = "You want see this!";
