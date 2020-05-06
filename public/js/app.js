@@ -1988,6 +1988,18 @@ __webpack_require__.r(__webpack_exports__);
     var _this = this;
 
     this.loading = true;
+    var p = new Promise(function (resolve, reject) {
+      console.log(resolve);
+      console.log(reject);
+      setTimeout(function () {
+        return resolve("Hello");
+      }, 3000);
+    }).then(function (result) {
+      console.log("success ${result}");
+    })["catch"](function (result) {
+      return console.log("Error ${result}");
+    });
+    console.log(p);
     setTimeout(function () {
       _this.bookables = [{
         id: 1,
