@@ -7,7 +7,7 @@
         <div class="col" v-for="(bookable,column) in bookablesInRow(row)" :key="'row'+row+column">
           <bookable-list-item
             :item-title="bookable.title"
-            :item-content="bookable.content"
+            :item-description="bookable.description"
             :price="1000"
           ></bookable-list-item>
         </div>
@@ -50,34 +50,23 @@ export default {
   created() {
     this.loading = true;
 
-    const p = new Promise((resolve, reject) => {
-      console.log(resolve);
-      console.log(reject);
-      setTimeout(() => resolve("Hello"), 3000);
-    })
-      .then(result => {
-        console.log("success ${result}");
-      })
-      .catch(result => console.log("Error ${result}"));
-    console.log(p);
+    // const p = new Promise((resolve, reject) => {
+    //   console.log(resolve);
+    //   console.log(reject);
+    //   setTimeout(() => resolve("Hello"), 3000);
+    // })
+    //   .then(result => {
+    //     console.log("success ${result}");
+    //   })
+    //   .catch(result => console.log("Error ${result}"));
+    // console.log(p);
 
-    setTimeout(() => {
-      this.bookables = [
-        {
-          id: 1,
-          title: "Cheap Villa1",
-          content: "A very cheap villa1"
-        },
-        { id: 2, title: "Cheap Villa2", content: "A very cheap villa2" },
-        { id: 3, title: "Cheap Villa3", content: "A very cheap villa2" },
-        { id: 4, title: "Cheap Villa4", content: "A very cheap villa2" },
-        { id: 5, title: "Cheap Villa5", content: "A very cheap villa2" },
-        { id: 6, title: "Cheap Villa6", content: "A very cheap villa2" },
-        { id: 7, title: "Cheap Villa7", content: "A very cheap villa2" },
-        { id: 8, title: "Cheap Villa8", content: "A very cheap villa2" }
-      ];
+    const request = axios.get("/api/bookables").then(response => {
+      this.bookables = response.data;
       this.loading = false;
-    }, 300);
+    });
+
+    console.log(request);
   }
 };
 </script>
