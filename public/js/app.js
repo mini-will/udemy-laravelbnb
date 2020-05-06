@@ -1959,14 +1959,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      bookable1: {
-        title: "Cheap Villa1",
-        content: "A very cheap villa1"
-      },
-      bookable2: {
-        title: "Cheap Villa2",
-        content: "A very cheap villa2"
-      }
+      bookable1: null,
+      bookable2: null
     };
   },
   created: function created() {
@@ -1976,9 +1970,18 @@ __webpack_require__.r(__webpack_exports__);
     console.log(this.bookable1);
     console.log(this.bookable2);
     setTimeout(function () {
-      _this.bookable1.title = "Expensive Villa";
-      _this.bookable2.title = "Very Expensive Villa";
+      _this.bookable1 = {
+        title: "Cheap Villa1",
+        content: "A very cheap villa1"
+      };
+      _this.bookable2 = {
+        title: "Cheap Villa2",
+        content: "A very cheap villa2"
+      };
     }, 3000);
+    setTimeout(function () {
+      _this.bookable1.title = "You want see this!";
+    }, 5000);
   }
 });
 

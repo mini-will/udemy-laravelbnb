@@ -22,8 +22,8 @@ export default {
   },
   data() {
     return {
-      bookable1: { title: "Cheap Villa1", content: "A very cheap villa1" },
-      bookable2: { title: "Cheap Villa2", content: "A very cheap villa2" }
+      bookable1: null,
+      bookable2: null
     };
   },
   created() {
@@ -32,9 +32,19 @@ export default {
     console.log(this.bookable2);
 
     setTimeout(() => {
-      this.bookable1.title = "Expensive Villa";
-      this.bookable2.title = "Very Expensive Villa";
+      this.bookable1 = {
+        title: "Cheap Villa1",
+        content: "A very cheap villa1"
+      };
+      this.bookable2 = {
+        title: "Cheap Villa2",
+        content: "A very cheap villa2"
+      };
     }, 3000);
+
+    setTimeout(() => {
+      this.bookable1.title = "You want see this!";
+    }, 5000);
   }
 };
 </script>
