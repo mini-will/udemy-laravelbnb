@@ -1920,6 +1920,8 @@ __webpack_require__.r(__webpack_exports__);
     itemTitle: String,
     itemContent: String,
     price: Number
+  },
+  mounted: function mounted() {// console.log(this.itemTitle);
   }
 });
 
@@ -1944,10 +1946,39 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     BookableListItem: _BookableListItem__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  data: function data() {
+    return {
+      bookable1: {
+        title: "Cheap Villa1",
+        content: "A very cheap villa1"
+      },
+      bookable2: {
+        title: "Cheap Villa2",
+        content: "A very cheap villa2"
+      }
+    };
+  },
+  created: function created() {
+    var _this = this;
+
+    console.log("created");
+    console.log(this.bookable1);
+    console.log(this.bookable2);
+    setTimeout(function () {
+      _this.bookable1.title = "Expensive Villa";
+      _this.bookable2.title = "Very Expensive Villa";
+    }, 3000);
   }
 });
 
@@ -37630,33 +37661,17 @@ var render = function() {
     [
       _c("bookable-list-item", {
         attrs: {
-          "item-title": "Cheap Villa1",
-          "item-content": "A very cheap villa1",
+          "item-title": _vm.bookable1.title,
+          "item-content": _vm.bookable1.content,
           price: 1000
         }
       }),
       _vm._v(" "),
       _c("bookable-list-item", {
         attrs: {
-          "item-title": "Cheap Villa2",
-          "item-content": "A very cheap villa1",
-          price: 1000
-        }
-      }),
-      _vm._v(" "),
-      _c("bookable-list-item", {
-        attrs: {
-          "item-title": "Cheap Villa3",
-          "item-content": "A very cheap villa1",
-          price: 1000
-        }
-      }),
-      _vm._v(" "),
-      _c("bookable-list-item", {
-        attrs: {
-          "item-title": "Cheap Villa4",
-          "item-content": "A very cheap villa1",
-          price: 1000
+          "item-title": _vm.bookable2.title,
+          "item-content": _vm.bookable2.content,
+          price: 2000
         }
       })
     ],
