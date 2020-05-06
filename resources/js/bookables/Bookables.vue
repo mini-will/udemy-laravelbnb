@@ -1,17 +1,16 @@
 <template>
   <div>
-    <bookable-list-item
-      v-if="bookable1"
-      :item-title="bookable1.title"
-      :item-content="bookable1.content"
-      :price="1000"
-    ></bookable-list-item>
-    <bookable-list-item
-      v-if="bookable2"
-      :item-title="bookable2.title"
-      :item-content="bookable2.content"
-      :price="2000"
-    ></bookable-list-item>
+    <div v-if="loading">Data is loading...</div>
+
+    <div v-els>
+      <bookable-list-item
+        :item-title="bookable.title"
+        :item-content="bookable.content"
+        :price="1000"
+        v-for="(bookable,index) in bookables"
+        :key="index"
+      ></bookable-list-item>
+    </div>
   </div>
 </template>
 
@@ -24,29 +23,24 @@ export default {
   },
   data() {
     return {
-      bookable1: null,
-      bookable2: null
+      bookables: null,
+      loading: null
     };
   },
   created() {
-    console.log("created");
-    console.log(this.bookable1);
-    console.log(this.bookable2);
+    this.loading = true;
 
     setTimeout(() => {
-      this.bookable1 = {
-        title: "Cheap Villa1",
-        content: "A very cheap villa1"
-      };
-      this.bookable2 = {
-        title: "Cheap Villa2",
-        content: "A very cheap villa2"
-      };
-    }, 2000);
-
-    setTimeout(() => {
-      this.bookable1.title = "You want see this!";
-    }, 5000);
+      this.bookables = [
+        {
+          id: 1,
+          title: "Cheap Villa1",
+          content: "A very cheap villa1"
+        },
+        { id: 2, title: "Cheap Villa2", content: "A very cheap villa2" }
+      ];
+      this.loading = false;
+    }, 1000);
   }
 };
 </script>
