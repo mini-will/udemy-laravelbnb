@@ -3,8 +3,6 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-use App\Bookable;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -20,10 +18,12 @@ use App\Bookable;
 //     return $request->user();
 // });
 
-Route::get('bookables', function (Request $request) {
-    return Bookable::all();
-});
+// Route::get('bookables', function (Request $request) {
+//     return Bookable::all();
+// });
+// Route::get('bookables/{id}', function (Request $request, $id) {
+//     return Bookable::findOrFail($id);
+// });
 
-Route::get('bookables/{id}', function (Request $request, $id) {
-    return Bookable::findOrFail($id);
-});
+Route::get('bookables', 'Api\BookableController@index');
+Route::get('bookables/{id}', 'Api\BookableController@show');
