@@ -15,9 +15,9 @@ class BookableReviewIndexResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'create_at' => $this->create_at,
+            'created_at' => $this->created_at,
             'rating' => $this->rating,
-            'content' => $this->content,
+            'content' => $this->content
         ];
     }
 }

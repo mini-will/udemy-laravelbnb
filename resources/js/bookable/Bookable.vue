@@ -8,17 +8,16 @@
             <hr />
             <article>{{ bookable.description }}</article>
           </div>
-          <div v-else>loading....</div>
+          <div v-else>Loading...</div>
         </div>
       </div>
-      <review-list></review-list>
+      <review-list :bookable-id="this.$route.params.id"></review-list>
     </div>
     <div class="col-md-4 pb-4">
-      <availability></availability>
+      <availability :bookable-id="this.$route.params.id"></availability>
     </div>
   </div>
 </template>
-
 
 <script>
 import Availability from "./Availability";
@@ -32,7 +31,7 @@ export default {
   data() {
     return {
       bookable: null,
-      loading: null
+      loading: false
     };
   },
   created() {
