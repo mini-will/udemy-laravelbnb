@@ -3,12 +3,12 @@
     <h6 class="text-uppercase test-secondary font-weight-bolder">
       check availability
       <span v-if="noAvailability" class="text-danger">(NOT AVAILABLE)</span>
-      <span v-if="hasAvailability" class="test-success">(AVAILABLE)</span>
+      <span v-if="hasAvailability" class="text-success">(AVAILABLE)</span>
     </h6>
 
     <div class="form-row">
       <div class="form-group col-md-6">
-        <label form="form">From</label>
+        <label for="from">From</label>
         <input
           type="text"
           name="from"
@@ -16,7 +16,7 @@
           placeholder="Start date"
           v-model="from"
           @keyup.enter="check"
-          :class="[{'is-invalid':this.errorFor('from')}]"
+          :class="[{'is-invalid': errorFor('from')}]"
         />
         <div
           class="invalid-feedback"
@@ -26,7 +26,7 @@
       </div>
 
       <div class="form-group col-md-6">
-        <label form="to">To</label>
+        <label for="to">To</label>
         <input
           type="text"
           name="to"
@@ -34,7 +34,7 @@
           placeholder="End date"
           v-model="to"
           @keyup.enter="check"
-          :class="[{'is-invalid':this.errorFor('to')}]"
+          :class="[{'is-invalid': errorFor('to')}]"
         />
         <div
           class="invalid-feedback"
@@ -114,4 +114,3 @@ label {
   color: #b22222;
 }
 </style>
-
