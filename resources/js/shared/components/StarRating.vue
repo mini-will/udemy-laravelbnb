@@ -1,0 +1,34 @@
+<template>
+    <div class="d-flex">
+        <i
+            class="fas fa-star"
+            v-for="star in fullStarts"
+            :key="'full' + star"
+        ></i>
+        <i class="fas fa-star-half-alt" v-if="halfStar"></i>
+        <i
+            class="far fa-star"
+            v-for="star in emptyStarts"
+            :key="'empty' + star"
+        ></i>
+    </div>
+</template>
+
+<script>
+export default {
+    props: {
+        rating: Number
+    },
+    computed: {
+        halfStar() {
+            return false;
+        },
+        fullStarts() {
+            return 4;
+        },
+        emptyStarts() {
+            return 1;
+        }
+    }
+};
+</script>
