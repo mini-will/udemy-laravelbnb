@@ -20,6 +20,12 @@ class Booking extends Model
         return $this->hasOne(Review::class);
     }
 
+    public static function findByReviewKey(string $reviewKey): ?Booking
+    {
+        // eager loading
+        return static::where('review_key', $reviewKey)->with('bookable')->get()->first();
+    }
+
     public function scopeBetweenDates(Builder $query, $from, $to)
     {
         return $query->where('to', '>=', $from)
