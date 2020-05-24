@@ -67,7 +67,13 @@ export default {
   },
   computed: {
     alreadyReviewd() {
+      return this.hasReview || !this.booking;
+    },
+    hasReview() {
       return this.existingReview !== null;
+    },
+    hasBooking() {
+      return this.booking !== null;
     }
   }
 };
